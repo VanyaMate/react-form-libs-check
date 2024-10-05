@@ -1,5 +1,7 @@
 # Итог
 
+[Таблица](https://docs.google.com/spreadsheets/d/131gJH3lH7ez7A-dnzdvrl5kSEUFlRgA_WrelxZfpZxs/edit?gid=0#gid=0)
+
 ## formik
 
 - Удобное API: Есть
