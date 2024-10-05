@@ -1,50 +1,61 @@
-# React + TypeScript + Vite
+# Итог
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## formik
 
-Currently, two official plugins are available:
+- Удобное API: Есть
+- Вес: 44.8, 13.2 gzip **(Критично)**
+- Типизация: Нормальная
+- Валидация: При каждом изменении формы **(Критично)**
+- Работа с фокусом при ошибках: Нет
+- Минимизация рендеров: Нет **(Критично)**
+- Дебаунс: Нет
+- Ресет: _Всей формы_
+- Работа с событиями: Только нативная
+- Файлы: Нет
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Вывод: **Не подходит никогда**
 
-## Expanding the ESLint configuration
+## react-final-form
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Удобное API: Есть
+- Вес: 8.9, 3.3 gzip
+- Типизация: Нормальная
+- Валидация: При каждом изменении формы **(Критично)**
+- Работа с фокусом при ошибках: Нет
+- Минимизация рендеров: Нет **(Критично)**
+- Дебаунс: Нет
+- Ресет: Нет
+- Работа с событиями: Только нативная
+- Файлы: Нет
 
-- Configure the top-level `parserOptions` property like this:
+Вывод: **Не подходит почти никогда**. Единственный плюс - вес.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## @tanstack/react-form
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Удобное API: Сойдет
+- Вес: 22.3, 6.2 gzip
+- Типизация: Хорошая
+- Валидация: Только тогда когда нужно
+- Работа с фокусом при ошибках: Нет
+- Минимизация рендеров: Есть
+- Дебаунс: Есть
+- Ресет: Есть, но почему-то не работает, возможно я что-то делал не так. Не разбирался.
+- Работа с событиями: Только нативная
+- Файлы: Только через field.setValue
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Вывод: **Подойдет почти всегда**. Основные минусы: не такое удобное API, почему то не срабатывал reset
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## react-hook-form
+
+- Удобное API: Есть
+- Вес: 28.9, 10.3 gzip _(Достаточно много)_
+- Типизация: Отличная
+- Валидация: Только тогда когда нужно
+- Работа с фокусом при ошибках: Есть
+- Минимизация рендеров: Есть
+- Дебаунс: Нет
+- Ресет: Есть
+- Работа с событиями: Есть
+- Файлы: Есть
+
+Вывод: **Подойдет почти всегда**. Основные минусы: вес и нет дебаунса.
